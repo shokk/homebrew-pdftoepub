@@ -19,12 +19,12 @@ class Pdftoepub < Formula
 
   resource "pdf2image" do
     url "https://files.pythonhosted.org/packages/00/d8/b280f01045555dc257b8153c00dee3bc75830f91a744cd5f84ef3a0a64b1/pdf2image-1.17.0.tar.gz"
-    sha256 "5d5e430395a3605cb81d99c14be92c51dc090e6a108b8a859b7e18ec8671b4a5"
+    sha256 "eaa959bc116b420dd7ec415fcae49b98100dda3dd18cd2fdfa86d09f112f6d57"
   end
 
   resource "pillow" do
     url "https://files.pythonhosted.org/packages/1c/3d/bb7fca845737cf9d7dbde16ed1843984665ff2e0a518f5db43e77ec540b9/pillow-12.3.0.tar.gz"
-    sha256 "5d5e430395a3605cb81d99c14be92c51dc090e6a108b8a859b7e18ec8671b4a5"
+    sha256 "3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce"
   end
 
   def install
