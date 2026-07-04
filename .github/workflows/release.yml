@@ -25,13 +25,18 @@ jobs:
 
       - name: Update formula version and sha256
         run: |
-          sed -i "s|version \".*\"|version \"${{ steps.sha.outputs.version }}\"|" Formula/pdftoepub.rb
           python3 -c "
-import re, sys
+import re
 path = 'Formula/pdftoepub.rb'
 content = open(path).read()
-# Replace only the first top-level sha256 (the formula's own, not resource blocks)
-content = re.sub(r'^  sha256 \"[^\"]+\"', '  sha256 \"${{ steps.sha.outputs.sha256 }}\"', content, count=1, flags=re.MULTILINE)
+ver = '${{ steps.sha.outputs.version }}'
+sha = '${{ steps.sha.outputs.sha256 }}'
+# Update hardcoded tag version in the url line
+content = re.sub(r'(archive/refs/tags/v)[^\"]+(\.tar\.gz)', r'\g<1>' + ver + r'\2', content)
+# Update version field
+content = re.sub(r'^  version \"[^\"]+\"', '  version \"' + ver + '\"', content, flags=re.MULTILINE)
+# Update only the first sha256 (formula-level, not resource blocks)
+content = re.sub(r'^  sha256 \"[^\"]+\"', '  sha256 \"' + sha + '\"', content, count=1, flags=re.MULTILINE)
 open(path, 'w').write(content)
 "
 

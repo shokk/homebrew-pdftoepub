@@ -9,7 +9,7 @@ class Pdftoepub < Formula
 
   desc "Convert a PDF to a pixel-perfect fixed-layout EPUB"
   homepage "https://github.com/shokk/homebrew-pdftoepub"
-  url "https://github.com/shokk/homebrew-pdftoepub/archive/refs/tags/v#{version}.tar.gz"
+  url "https://github.com/shokk/homebrew-pdftoepub/archive/refs/tags/v1.0.0.tar.gz"
   version "1.0.0"
   sha256 "5d5e430395a3605cb81d99c14be92c51dc090e6a108b8a859b7e18ec8671b4a5"
   license "MIT"
